@@ -37,8 +37,6 @@ algorithmes-tri/
 │   ├── modifQuicksort.cpp
 │   ├── quicksort.cpp
 │   └── stdSort.cpp
-├── data/
-│   └── [fichiers de données]
 ├── plots/
 │   ├── individual/
 │   │   └── [graphiques individuels]
@@ -47,9 +45,27 @@ algorithmes-tri/
 │   └── slow_running_time.png
 ├── build.sh
 ├── main.cpp
+├── plot.sage
 ├── sort.hpp
+├── test.cpp
 └── README.md
 ```
+
+### Fichiers principaux
+
+- **algo/**: Dossier contenant les différentes implémentations d'algorithmes de tri
+- **main.cpp**: Programme principal qui mesure les performances des algorithmes avec différentes tailles et types de données
+- **plot.sage**: Script SageMath qui génère les graphiques de comparaison de performance
+  - Lit les données de performance dans le dossier `data/`
+  - Crée des graphiques pour chaque algorithme individuellement
+  - Génère trois graphiques comparatifs (tous les algorithmes, algorithmes rapides, algorithmes lents)
+  - Sauvegarde les résultats dans le dossier `plots/`
+- **test.cpp**: Programme de test simple permettant de vérifier visuellement le fonctionnement des algorithmes de tri
+  - Génère un vecteur de 50 éléments aléatoires
+  - Affiche le vecteur avant et après le tri
+  - Utile pour le débogage et la vérification rapide des algorithmes
+- **sort.hpp**: Interface commune pour tous les algorithmes de tri
+- **build.sh**: Script qui compile les programmes, exécute les tests de performance et génère les graphiques
 
 ## 📊 Résultats de l'analyse
 
@@ -90,11 +106,34 @@ Lors de la compilation, deux paramètres spécifiques sont utilisés:
 
 > ⚠️ Attention: L'optimisation très agressive activée par `-Ofast` peut parfois outrepasser certaines normes et conduire au dysfonctionnement d'un programme pourtant bien écrit.
 
+## 📋 Prérequis
+
+Avant de lancer le projet, assurez-vous d'avoir les éléments suivants installés sur votre système:
+
+- **g++** - Compilateur C++ (GCC)
+- **SageMath** - Système d'algèbre informatique nécessaire pour générer les graphiques
+- **Bash** - Pour exécuter le script de compilation
+
+Pour installer SageMath:
+```bash
+# Sur Debian/Ubuntu
+sudo apt-get install sagemath
+
+# Sur Fedora/RHEL
+sudo dnf install sagemath
+
+# Sur macOS avec Homebrew
+brew install sage
+
+# Sur Arch Linux
+sudo pacman -S sagemath
+```
+
 ## 🚦 Comment lancer le projet
 
 1. Clonez le dépôt:
 ```bash 
-git clone https://github.com/RobinHil/algo-tri
+git clone https://github.com/RobinHil/algo-tri.git
 cd algo-tri
 ```
 
